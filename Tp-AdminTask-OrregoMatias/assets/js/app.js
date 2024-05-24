@@ -1,27 +1,6 @@
 let tareas = [] 
 let eleccion = 1 
-while (eleccion !== 0){
-    eleccion = parseInt(prompt(" 0-Salir \n 1- Escribir Tarea \n 2- Listar Tareas \n 3- Editar Tareas \n 4- Eliminar Tareas"));
-    switch (eleccion){
-        case 0:
-            alert("Gracias, Hasta Luego.");
-            break;
-        case 1:
-            AddTarea(prompt("Ingrese la tarea:"));
-            break;
-        case 2:
-            listTarea();
-            break;
-        case 3:
-            editTarea(prompt("Nombre de la tarea que desee editar:"));
-        case 4:
-            deletTarea(prompt("Nombre de la Tarea que desee eliminar:"));
-            break;
-        default:
-            alert("Ingrese alguna de las opciones anteriores")
-            break;
-    }
-}
+
 function AddTarea(nombre) {
     switch (true) {
         case (nombre === " "):
@@ -34,7 +13,7 @@ function AddTarea(nombre) {
             alert("No se puede agregar una tarea con espacio al final.")
             break
         default:
-            tarea.push(nombre)
+            tareas.push(nombre)
             break;
     }
 }
@@ -72,5 +51,28 @@ function deletTarea(nombre){
         tareas.splice(tareas.indexOf(nombre),1)    
     }else{
         alert("No existe esa Tarea.")
+    }
+}
+while (eleccion !== 0){
+    eleccion = parseInt(prompt(" 0-Salir \n 1- Escribir Tarea \n 2- Listar Tareas \n 3- Editar Tareas \n 4- Eliminar Tareas"));
+    switch (eleccion){
+        case 0:
+            alert("Gracias, Hasta Luego.");
+            break;
+        case 1:
+            AddTarea(prompt("Ingrese la tarea:"));
+            break;
+        case 2:
+            listTarea();
+            break;
+        case 3:
+            editTarea(prompt("Nombre de la tarea que desee editar:"));
+            break;
+        case 4:
+            deletTarea(prompt("Nombre de la Tarea que desee eliminar:"));
+            break;
+        default:
+            alert("Ingrese alguna de las opciones anteriores")
+            break;
     }
 }
